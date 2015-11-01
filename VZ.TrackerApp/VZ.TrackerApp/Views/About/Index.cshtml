@@ -2,6 +2,36 @@
 @{
     ViewBag.Title = "About Page";
 }
+<script>
+    function Search() {
+        var name = { strName: $("#txtSeach").val() };
+        $.ajax({
+            url: $("#checkName").val(),
+            method: "POST",
+            data: JSON.stringify(name),
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            success: function (res) {
+                alert(res);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
 
+        });
+    }
+</script>
 <h2>About Page</h2>
 
+<table>
+    <tr>
+        <td>Search Name:</td>
+        <td><input type="text" id="txtSeach" />  </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button"  value="Search" onclick="Search();" />  </td>
+    </tr>
+</table>
+<input type="hidden" id="checkName" value="@Url.Action("GetName", "Home")" />

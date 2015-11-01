@@ -141,20 +141,19 @@ GetUserAgent = function () {
 
 function GetPerformanceActivity() {
     $.ajax({
-        url: "http://localhost:53373/TrackerRestService.svc/GetPagePerformance",
+        url: "http://vztrackerrestapi.azurewebsites.net/TrackerRestService.svc/GetPagePerformance",
         method: "GET",
         success: function (lstPagePer) {
             lstPagePerf = lstPagePer;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
         }
 
     });
 }
 function InsertUserActivity() {
     $.ajax({
-        url: "http://localhost:53373/TrackerRestService.svc/InsertUserActivity",
+        url: "http://vztrackerrestapi.azurewebsites.net/TrackerRestService.svc/InsertUserActivity",
         method: "POST",
         data: JSON.stringify(objUserAct),
         headers: {
@@ -164,7 +163,6 @@ function InsertUserActivity() {
             var res = res;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
         }
 
     });
@@ -172,7 +170,7 @@ function InsertUserActivity() {
 function InsertPagePerformance() {
 
     $.ajax({
-        url: "http://localhost:53373/TrackerRestService.svc/InsertPagePerformance",
+        url: "http://vztrackerrestapi.azurewebsites.net/TrackerRestService.svc/InsertPagePerformance",
         method: "POST",
         data: JSON.stringify(objPagePer),
         headers: {
@@ -182,7 +180,6 @@ function InsertPagePerformance() {
             var res = res;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
         }
 
     });
@@ -199,7 +196,7 @@ function InsertUserActivityPerformance() {
     objUserActivityPerformance.Activity = objUserAct;
     objUserActivityPerformance.Performance = objPagePer;
     $.ajax({
-        url: "http://localhost:53373/TrackerRestService.svc/UserActivityPerformance",
+        url: "http://vztrackerrestapi.azurewebsites.net/TrackerRestService.svc/UserActivityPerformance",
         method: "POST",
         data: JSON.stringify(objUserActivityPerformance),
         headers: {
@@ -209,7 +206,6 @@ function InsertUserActivityPerformance() {
             var res = res;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
         }
 
     });

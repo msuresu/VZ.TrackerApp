@@ -13,5 +13,14 @@ namespace VZ.TrackerApp.Controllers
         {
             return View();
         }
+        public JsonResult GetName(string strName)
+        {
+            string strMessage = "Search Name not Exits";
+            if (strName.Equals("Test"))
+            {
+                strMessage = "Search Name Exits";
+            }
+            return Json(strMessage, JsonRequestBehavior.AllowGet);
+        }
     }
 }
